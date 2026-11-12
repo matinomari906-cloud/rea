@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#850b16">
+<title>جنتری هوشمند شهرک حاجی فضل احمد عمر — نسخه ۲</title>
+<style>
+:root{--red:#850b16;--dark:#5d050d;--gold:#d4af37;--light:#f5d77f;--cream:#fff8e8;--paper:#fffaf0;--ink:#321014;--muted:#78684f;--line:#e4ca78}
+*{box-sizing:border-box}body{margin:0;background:#f1eadb;color:var(--ink);font-family:Tahoma,"Noto Naskh Arabic",serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
+.app{max-width:1180px;margin:auto;padding:14px}
+.hero{background:linear-gradient(135deg,var(--red),var(--dark));color:#f8df91;border-radius:22px;padding:22px;text-align:center;box-shadow:0 8px 24px #5d050d24;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:8px;border:1px solid #d4af3780;border-radius:16px;pointer-events:none}
+.hero img{width:94px;height:94px;object-fit:contain;border-radius:50%;background:#fff8e8;border:3px solid var(--gold);padding:3px}
+.hero h1{font-size:clamp(20px,4vw,30px);margin:9px 0 4px}.hero p{margin:5px 0;color:#f6dfaa}
+.version{font-size:11px;background:#ffffff20;padding:5px 10px;border-radius:20px;display:inline-block}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:14px 0}
+.tabs button,.btn{border:1px solid var(--gold);background:var(--red);color:#ffe9a9;border-radius:11px;padding:10px 14px;font-weight:bold}
+.tabs button.active{background:var(--gold);color:var(--dark)}.btn.light{background:#fff8e8;color:var(--red)}.btn.dark{background:#5d050d}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:16px;margin:12px 0;box-shadow:0 4px 14px #6b3c1510}
+h2{font-size:19px;margin:0 0 12px;color:var(--red)}h3{font-size:15px;margin:0 0 8px}
+.muted{color:var(--muted);font-size:12px;line-height:1.8}.hidden{display:none!important}
+.row{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.row>*{flex:1}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.datecard{border:1px solid var(--gold);border-radius:14px;overflow:hidden;text-align:center;background:#fffdf7;box-shadow:0 4px 10px #6b3c1518}
+.datecard h3{background:var(--red);color:#ffe5a0;margin:0;padding:9px}.datecard strong{display:block;font-size:clamp(30px,6vw,49px);color:var(--red);padding:8px 2px 0}.datecard small{display:block;color:#6c5b43;padding:0 3px 9px}.datecard footer{background:var(--gold);padding:8px;font-weight:bold}
+.weekday{text-align:center;color:#9b7519;font-size:18px;font-weight:bold}
+.ayah{border:2px solid var(--gold);border-radius:16px;background:#f7ecd1;padding:17px;text-align:center;margin-top:16px}
+.arabic{font-size:clamp(20px,3vw,27px);line-height:2.1;color:#4c1013}.translation{line-height:2;color:#64533d}.ref{color:#8d2022;font-size:12px}
+.footer{background:var(--red);color:#f6d77e;text-align:center;padding:20px;border-radius:50% 50% 12px 12px/18% 18% 12px 12px;margin-top:20px}.footer small{display:block;color:#f3dcae;margin-top:6px}.footer img{width:54px;height:54px;object-fit:contain;background:#fff8e8;border:2px solid var(--gold);border-radius:7px;margin:0 0 7px}
+.field{display:flex;flex-direction:column;gap:6px;margin:8px 0}.field label{font-size:13px;color:#684d24}.field input,.field select,.field textarea{width:100%;padding:10px;border:1px solid #d6bd76;border-radius:10px;background:#fffdf7;color:var(--ink)}
+.field textarea{min-height:80px;resize:vertical}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:7px;max-height:390px;overflow:auto}
+.dayitem{background:#fff9e9;border:1px solid #ddc16d;border-radius:9px;padding:9px;text-align:right;color:#4c1518}
+.dayitem.selected{background:#f4e0a6;border:2px solid var(--red)}
+.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{background:#fff7e5;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}.stat b{display:block;font-size:22px;color:var(--red)}
+.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:9px;border-bottom:1px solid #eadba9;text-align:right}th{color:var(--red)}
+.toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#211719;color:#fff;padding:10px 16px;border-radius:10px;display:none;z-index:20}
+.poster{width:min(100%,420px);height:auto;margin:10px auto;border:1px solid var(--gold);box-shadow:0 4px 15px #0002;display:block;background:var(--cream)}
+.note{padding:10px;border-right:4px solid var(--gold);background:#fff5dc;border-radius:8px;font-size:12px;line-height:1.9}
+@media(max-width:650px){.app{padding:9px}.grid2{grid-template-columns:1fr}.cards{gap:5px}.datecard h3{font-size:12px}.datecard footer{font-size:12px}.panel{padding:12px}.hero{padding:16px}}
+@media print{
+ @page{size:A5 portrait;margin:7mm}
+ body{background:#fff}.app{max-width:none;padding:0}.hero{border-radius:0;box-shadow:none;padding:10px}.hero img{width:68px;height:68px}.tabs,.no-print,.panel.settings,.panel.converter,.panel.yearpanel,.panel.events,.panel.library,.panel.poster-tools{display:none!important}
+ .panel{box-shadow:none;margin:5px 0;padding:10px}.datecard{break-inside:avoid}.ayah{margin-top:10px}.footer{margin-top:12px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="hero">
+  <!-- The supplied source was truncated inside the embedded logo image. -->
+  <h1>جنتری هوشمند شهرک حاجی فضل احمد عمر</h1>
+  <span class="version">نسخه ۲</span>
+</header>
+</div>
+</body>
+</html>
